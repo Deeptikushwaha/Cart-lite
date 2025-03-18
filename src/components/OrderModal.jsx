@@ -1,7 +1,7 @@
 import { useCart } from '../context/CartContext';
 
 export default function OrderModal() {
-  const { isOrderModalOpen, setIsOrderModalOpen, cartTotal, clearCart } = useCart();
+  const { isOrderModalOpen, setIsOrderModalOpen, clearCart, cartTotal } = useCart();
 
   if (!isOrderModalOpen) return null;
 
@@ -9,6 +9,9 @@ export default function OrderModal() {
     clearCart();
     setIsOrderModalOpen(false);
   };
+  
+
+  
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">

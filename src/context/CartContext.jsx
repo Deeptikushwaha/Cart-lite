@@ -33,7 +33,7 @@ export function CartProvider({children}) {
         setCartItems([]);
     }
     const cartTotal = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (total, item) => total + (item.price * item.quantity),
     0
   );
 
@@ -44,6 +44,7 @@ export function CartProvider({children}) {
             removeFromCart,
             updateQuantity,
             clearCart,
+            cartTotal,
             isOrderModalOpen,
             setIsOrderModalOpen
         }}>

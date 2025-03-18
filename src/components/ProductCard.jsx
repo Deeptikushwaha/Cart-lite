@@ -22,14 +22,14 @@ export default function ProductCard({ product }) {
        
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 rounded-full px-4 py-2 flex items-center gap-4">
           <button 
-              onClick={() => handleQuantityChange(-1)}
+              onClick={() => setQuantity(prev => Math.max(1, prev - 1))} //handleQuantityChange(-1)}
               className="text-orange-600 hover:text-orange-700"
             >
               -
             </button>
             <span className="text-lg">{quantity}</span>
             <button 
-              onClick={() => handleQuantityChange(1)}
+              onClick={() => setQuantity(prev => prev + 1)}  //handleQuantityChange(1)
               className="text-orange-600 hover:text-orange-700"
             >
               +
@@ -42,7 +42,7 @@ export default function ProductCard({ product }) {
         <p className="text-sm text-gray-500">{product.category}</p>
         <h3 className="text-lg font-medium mt-1">{product.name}</h3>
         <div className="flex justify-between items-center mt-2">
-          <p className="text-orange-600 font-medium">${product.price.toFixed(2)}</p>
+          <p className="text-orange-600 font-medium">${product.price}</p>
           <button
             onClick={() => {
               addToCart(product, quantity);
